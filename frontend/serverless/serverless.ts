@@ -1,6 +1,7 @@
 import { CloudFormationResources, Serverless, Tags } from "serverless/aws";
 
 import { FrontendBuildBucket, FrontendBuildBucketPolicy } from "./resources/s3";
+import { NoplpFrontendCloudFront } from "./resources/cloudfront";
 
 const defaultTags: Tags = {
   project: "noplp",
@@ -9,6 +10,7 @@ const defaultTags: Tags = {
 const Resources: CloudFormationResources = {
   FrontendBuildBucket,
   FrontendBuildBucketPolicy,
+  NoplpFrontendCloudFront,
 };
 
 const serverlessConfiguration: Serverless = {
@@ -38,6 +40,9 @@ const serverlessConfiguration: Serverless = {
         Value: {
           Ref: "FrontendBuildBucket",
         },
+      },
+      NoplpFrontDistributionOutput: {
+        Value: { "Fn::GetAtt": ["NoplpFrontendCloudFront", "DomainName"] },
       },
     },
   },
