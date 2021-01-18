@@ -1,0 +1,16 @@
+{
+  "name": "serverless",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "deploy": "sls deploy"
+  },
+  "devDependencies": {
+    "@types/serverless": "^1.78.20",
+    "serverless": "^2.19.0",
+    "serverless-s3-sync": "^1.15.0",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.3"
+  }
+}

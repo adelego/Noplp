@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+    "lib": ["es2017"],
+    "removeComments": true,
+    "moduleResolution": "node",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "sourceMap": true,
+    "target": "es2017",
+    "strict": true,
+    "noImplicitReturns": true,
+    "skipLibCheck": true,
+    "types": ["node", "jest"],
+    "preserveSymlinks": true,
+    "baseUrl": ".",
+    "paths": {
+    "@resources/*": ["resources/*"],
+    }
+    },
+    "exclude": ["**/node_modules/**/*"],
+    "include": ["./**/*.ts"]
+  }
+  
