@@ -1,0 +1,14 @@
+{
+    "eslint.workingDirectories": [
+        {
+          "directory": "./frontend",
+          "changeProcessCWD": true
+        }
+      ],
+      "search.exclude": {
+        "**/node_modules": true,
+        "**/serverless": true,
+        "**/yarn.lock": true,
+        "**/build": true
+      },
+}
