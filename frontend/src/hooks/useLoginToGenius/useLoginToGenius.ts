@@ -7,7 +7,13 @@ import axios from 'axios';
 
 const API_GATEWAY_URL = process.env.REACT_APP_API_GATEWAY_URL;
 
-export const useCompleteLoginToGenius = () => {
+interface Return {
+  loading: boolean;
+  error?: Error;
+  isSuccessful?: boolean;
+}
+
+export const useCompleteLoginToGenius = (): Return => {
   const location = useLocation();
   const { redirectToGeniusLogin } = useRedirectToGeniusLogin();
 

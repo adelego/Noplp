@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
 import { useRedirectToGeniusLogin } from '../../hooks/useRedirectToGeniusLogin/useRedirectToGeniusLogin';
 
-interface Props {}
-
-const StartGame = (props: Props) => {
+const StartGame = (): JSX.Element => {
   const { redirectToGeniusLogin } = useRedirectToGeniusLogin();
   useEffect(() => {
     redirectToGeniusLogin();

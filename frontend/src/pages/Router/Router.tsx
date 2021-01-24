@@ -10,7 +10,7 @@ import { GeniusRedirect } from '../GeniusRedirect';
 import { StartGame } from '../StartGame';
 import { createBrowserHistory } from 'history';
 
-const Router = () => {
+const Router = (): JSX.Element => {
   const history = useMemo(() => createBrowserHistory(), []);
   return (
     <ReactRouter history={history}>
@@ -26,8 +26,6 @@ const Router = () => {
           </ul>
         </nav>
 
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
         <Switch>
           <Route path="/redirect">
             <GeniusRedirect />

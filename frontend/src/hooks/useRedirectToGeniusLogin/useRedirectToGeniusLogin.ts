@@ -4,6 +4,10 @@ import { stringify as stringifyQueryParams } from 'qs';
 const redirectUrl = process.env.REACT_APP_GENIUS_REDIRECT_URL ?? '';
 const geniusClientId = process.env.REACT_APP_GENIUS_CLIENT_ID ?? '';
 
+interface Return {
+  redirectToGeniusLogin: () => void;
+}
+
 const getGeniusLoginUrl = () => {
   const queryParams = stringifyQueryParams({
     client_id: geniusClientId,
@@ -14,7 +18,7 @@ const getGeniusLoginUrl = () => {
   return `https://api.genius.com/oauth/authorize?${queryParams}`;
 };
 
-export const useRedirectToGeniusLogin = () => {
+export const useRedirectToGeniusLogin = (): Return => {
   const redirectToGeniusLogin = useCallback((): string | null => {
     const token = window.localStorage.getItem('geniusToken');
     if (token === null) {

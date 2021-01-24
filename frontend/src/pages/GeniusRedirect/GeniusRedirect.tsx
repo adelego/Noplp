@@ -1,21 +1,19 @@
 import React from 'react';
 import { useCompleteLoginToGenius } from '../../hooks/useLoginToGenius/useLoginToGenius';
 
-interface Props {}
-
-const GeniusRedirect = (props: Props) => {
+const GeniusRedirect = (): JSX.Element => {
   const { error, loading, isSuccessful } = useCompleteLoginToGenius();
   return (
     <div>
       {loading && 'Logging you in with Genius...'}
-      {error && (
+      {error !== undefined && (
         <>
           Logging failed
           <br />
           <a href="/game">Try again</a>
         </>
       )}
-      {isSuccessful && (
+      {isSuccessful === true && (
         <>
           You were successfully logged in !<br />
           <a href="/game">Start a game</a>
