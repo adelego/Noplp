@@ -9,10 +9,10 @@
 /coverage
 
 # production
-/build
+frontend/build
 
 # deployment
-*/.serverless
+**/.serverless
 
 # misc
 .DS_Store
