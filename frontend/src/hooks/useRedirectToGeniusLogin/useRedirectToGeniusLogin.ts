@@ -1,5 +1,4 @@
 import { useCallback } from "react";
-import { useHistory, useLocation } from "react-router-dom";
 import { stringify as stringifyQueryParams } from "qs";
 
 const redirectUrl = process.env.REACT_APP_GENIUS_REDIRECT_URL ?? "";
@@ -15,16 +14,14 @@ const getGeniusLoginUrl = () => {
   return `https://api.genius.com/oauth/authorize?${queryParams}`;
 };
 
-export const useGetGeniusToken = () => {
-  const history = useHistory();
-  const location = useLocation();
-  const getGeniusToken = useCallback((): string | null => {
+export const useRedirectToGeniusLogin = () => {
+  const redirectToGeniusLogin = useCallback((): string | null => {
     const token = window.localStorage.getItem("geniusToken");
     if (token === null) {
       window.location.href = getGeniusLoginUrl();
       return null;
     }
     return token;
-  }, [history, location]);
-  return { getGeniusToken };
+  }, []);
+  return { redirectToGeniusLogin };
 };
