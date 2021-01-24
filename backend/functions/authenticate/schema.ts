@@ -1,15 +1,15 @@
 export default {
-  type: "object",
+  type: 'object',
   properties: {
     queryStringParameters: {
-      type: "object",
-      properties: { userCode: { type: "string" } },
-      required: ["userCode"],
+      type: 'object',
+      properties: { userCode: { type: 'string' } },
+      required: ['userCode'],
       additionalProperties: false,
     },
     context: {
-      type: "object",
-      properties: { stage: { type: "string" } },
+      type: 'object',
+      properties: { stage: { type: 'string' } },
     },
   },
 } as const;

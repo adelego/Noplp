@@ -1,14 +1,14 @@
 export default {
-  handler: "functions/authenticate/handler.main",
+  handler: 'functions/authenticate/handler.main',
   events: [
     {
       httpApi: {
-        method: "get",
-        path: "/login",
+        method: 'get',
+        path: '/login',
         cors: {
-          allowedOrigins: "*",
-          allowedHeaders: ["Content-Type", "Authorization", "Origin"],
-          allowedMethods: ["GET", "OPTIONS"],
+          allowedOrigins: '*',
+          allowedHeaders: ['Content-Type', 'Authorization', 'Origin'],
+          allowedMethods: ['GET', 'OPTIONS'],
           allowCredentials: true,
         },
       },
@@ -16,13 +16,13 @@ export default {
   ],
   iamRoleStatements: [
     {
-      Effect: "Allow",
+      Effect: 'Allow',
       Resource: {
-        "Fn::Sub":
-          "arn:aws:ssm:${opt:region, self:provider.region}:*:parameter/noplp-${opt:stage, self:provider.stage}-genius-*",
+        'Fn::Sub':
+          'arn:aws:ssm:${opt:region, self:provider.region}:*:parameter/noplp-${opt:stage, self:provider.stage}-genius-*',
       },
 
-      Action: ["ssm:GetParameter"],
+      Action: ['ssm:GetParameter'],
     },
   ],
   iamRoleStatementsInherit: true,

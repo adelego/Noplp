@@ -1,4 +1,4 @@
-import * as AWS from "aws-sdk";
+import * as AWS from 'aws-sdk';
 
 interface Parameter {
   name: string;
@@ -9,7 +9,7 @@ const ssm = new AWS.SSM();
 
 const getSSMParameter = async (
   parameterName: string,
-  withDecryption: boolean
+  withDecryption: boolean,
 ): Promise<string | undefined> => {
   try {
     const data = await ssm
@@ -22,7 +22,7 @@ const getSSMParameter = async (
     console.error(
       `Parameter ${parameterName} was not found in AWS Systems Manager`,
       `Details : `,
-      e
+      e,
     );
     process.exitCode = 1; // Set exit code when error
 
@@ -31,7 +31,7 @@ const getSSMParameter = async (
 };
 
 export const getSSMParameters = async (
-  parameters: Parameter[]
+  parameters: Parameter[],
 ): Promise<Record<string, string>> => {
   const result: Record<string, string> = {};
   await Promise.all(
@@ -41,7 +41,7 @@ export const getSSMParameters = async (
         throw new Error(`Aborting de to ${name} not found...`);
       }
       result[name] = value;
-    })
+    }),
   );
   return result;
 };
