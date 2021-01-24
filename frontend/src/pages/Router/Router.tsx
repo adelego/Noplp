@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { Link, Redirect, Route, Router as ReactRouter, Switch} from 'react-router-dom';
-import { Login } from '../Login';
+import { GeniusRedirect } from '../GeniusRedirect';
 import { StartGame } from '../StartGame';
 import { createBrowserHistory } from "history";
 
@@ -23,8 +23,8 @@ const Router = () => {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/login">
-            <Login />
+          <Route path="/redirect">
+            <GeniusRedirect />
           </Route>
           <Route path="/game">
             <StartGame />
