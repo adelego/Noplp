@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.build.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {},
+    "skipLibCheck": true,
+    "types": ["node", "jest"],
+    "preserveSymlinks": true,
+  },
+  "include": ["./**/*.ts", "../../shared/**/*.ts"]
+}
