@@ -6,10 +6,16 @@ interface Props {
 }
 
 const GeniusRedirect = (props: Props) => {
-    useCompleteLoginToGenius()
+    const {error, loading, isSuccessful} =useCompleteLoginToGenius()
     return (
         <div>
-            Logging you in with Genius...
+            {loading && "Logging you in with Genius..."}
+            {error && <>
+            Logging failed
+            <br/>
+            <a href="/game">Try again</a>
+            </>}
+            {isSuccessful && <>You were successfully logged in !<br/><a href="/game">Start a game</a></>}
         </div>
     )
 }

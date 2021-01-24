@@ -11,12 +11,16 @@ export const useCompleteLoginToGenius = () => {
   const location = useLocation();
   const { redirectToGeniusLogin } = useRedirectToGeniusLogin();
 
-  const [_, completeLoginToGenius] = useAsyncFn(async (userCode: string) => {
+  const [
+    { loading, error, value: isSuccessful },
+    completeLoginToGenius,
+  ] = useAsyncFn(async (userCode: string) => {
     const response = await axios.get(`${API_GATEWAY_URL}/login`, {
       params: { userCode },
     });
     const token = response.data.token;
     window.localStorage.setItem("geniusToken", token);
+    return true;
   });
 
   useEffect(() => {
@@ -29,4 +33,12 @@ export const useCompleteLoginToGenius = () => {
     }
     completeLoginToGenius(userCode);
   }, [location, redirectToGeniusLogin, completeLoginToGenius]);
+
+  useEffect(() => {
+    if (error) {
+      window.localStorage.removeItem("geniusToken");
+    }
+  }, [error]);
+
+  return { loading, error, isSuccessful };
 };
