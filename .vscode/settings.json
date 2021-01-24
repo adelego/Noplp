@@ -3,6 +3,10 @@
         {
           "directory": "./frontend",
           "changeProcessCWD": true
+        },
+        {
+          "directory": "./backend",
+          "changeProcessCWD": true
         }
       ],
       "search.exclude": {

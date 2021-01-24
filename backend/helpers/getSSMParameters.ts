@@ -10,7 +10,7 @@ const ssm = new AWS.SSM();
 const getSSMParameter = async (
   parameterName: string,
   withDecryption: boolean
-) => {
+): Promise<string | undefined> => {
   try {
     const data = await ssm
       .getParameter({ Name: parameterName, WithDecryption: withDecryption })
@@ -30,7 +30,9 @@ const getSSMParameter = async (
   }
 };
 
-export const getSSMParameters = async (parameters: Parameter[]) => {
+export const getSSMParameters = async (
+  parameters: Parameter[]
+): Promise<Record<string, string>> => {
   const result: Record<string, string> = {};
   await Promise.all(
     parameters.map(async ({ name, withDecryption }) => {
