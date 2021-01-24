@@ -1,1 +1,1 @@
-export { default as GeniusRedirect } from "./GeniusRedirect";
+export { default as GeniusRedirect } from './GeniusRedirect';

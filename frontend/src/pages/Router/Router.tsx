@@ -1,11 +1,17 @@
 import React, { useMemo } from 'react';
-import { Link, Redirect, Route, Router as ReactRouter, Switch} from 'react-router-dom';
+import {
+  Link,
+  Redirect,
+  Route,
+  Router as ReactRouter,
+  Switch,
+} from 'react-router-dom';
 import { GeniusRedirect } from '../GeniusRedirect';
 import { StartGame } from '../StartGame';
-import { createBrowserHistory } from "history";
+import { createBrowserHistory } from 'history';
 
 const Router = () => {
-  const history = useMemo(() => createBrowserHistory(), [])
+  const history = useMemo(() => createBrowserHistory(), []);
   return (
     <ReactRouter history={history}>
       <div>
@@ -36,6 +42,6 @@ const Router = () => {
       </div>
     </ReactRouter>
   );
-}
+};
 
 export default Router;

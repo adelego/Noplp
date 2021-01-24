@@ -1,9 +1,9 @@
-import { useLocation } from "react-router";
-import { parse as parseQueryString } from "qs";
-import { useRedirectToGeniusLogin } from "../useRedirectToGeniusLogin/useRedirectToGeniusLogin";
-import { useEffect } from "react";
-import { useAsyncFn } from "react-use";
-import axios from "axios";
+import { useLocation } from 'react-router';
+import { parse as parseQueryString } from 'qs';
+import { useRedirectToGeniusLogin } from '../useRedirectToGeniusLogin/useRedirectToGeniusLogin';
+import { useEffect } from 'react';
+import { useAsyncFn } from 'react-use';
+import axios from 'axios';
 
 const API_GATEWAY_URL = process.env.REACT_APP_API_GATEWAY_URL;
 
@@ -19,12 +19,12 @@ export const useCompleteLoginToGenius = () => {
       params: { userCode },
     });
     const token = response.data.token;
-    window.localStorage.setItem("geniusToken", token);
+    window.localStorage.setItem('geniusToken', token);
     return true;
   });
 
   useEffect(() => {
-    const strippedSearch = location.search.replace("?", "");
+    const strippedSearch = location.search.replace('?', '');
     const userCode =
       parseQueryString(strippedSearch).code?.toString() ?? undefined;
     if (userCode === undefined) {
@@ -36,7 +36,7 @@ export const useCompleteLoginToGenius = () => {
 
   useEffect(() => {
     if (error) {
-      window.localStorage.removeItem("geniusToken");
+      window.localStorage.removeItem('geniusToken');
     }
   }, [error]);
 
