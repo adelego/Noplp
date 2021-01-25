@@ -28,10 +28,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "yarn test:lint",
     "eject": "react-scripts eject",
     "deploy": "yarn build && cd serverless && yarn deploy",
-    "lint": "yarn run eslint --fix --ext .js,.jsx,.ts,.tsx src/"
+    "test:lint": "yarn run eslint --fix --ext .js,.jsx,.ts,.tsx src/"
   },
   "eslintConfig": {
     "extends": [
