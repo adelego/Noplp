@@ -6,6 +6,9 @@ name: Backend CI
 on:
   push:
     branches: [main]
+    paths:
+      - "backend/**"
+      - ".github/workflows/**"
   pull_request:
     branches: [main]
     paths:
@@ -17,7 +20,7 @@ defaults:
     working-directory: backend
 
 jobs:
-  deploy-backend:
+  build-backend:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
